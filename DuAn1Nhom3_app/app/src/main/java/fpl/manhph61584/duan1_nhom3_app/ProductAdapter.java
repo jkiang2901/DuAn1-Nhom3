@@ -15,7 +15,6 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import fpl.manhph61584.duan1_nhom3_app.R;
 import fpl.manhph61584.duan1_nhom3_app.Product;
 import fpl.manhph61584.duan1_nhom3_app.DetailProductActivity;
 
@@ -58,6 +57,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             Intent intent = new Intent(context, DetailProductActivity.class);
             intent.putExtra("id", p.getId());
             context.startActivity(intent);
+            if (context instanceof android.app.Activity) {
+                ((android.app.Activity) context).overridePendingTransition(
+                    fpl.manhph61584.duan1_nhom3_app.R.anim.slide_in_right,
+                    fpl.manhph61584.duan1_nhom3_app.R.anim.slide_out_left
+                );
+            }
         });
     }
 
